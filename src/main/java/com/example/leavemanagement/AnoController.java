@@ -112,7 +112,7 @@ public class AnoController {
     }
 
     @GetMapping("/")
-    public String index() {
+    public String welcome() {
         return "home";
     }
 
@@ -129,11 +129,6 @@ public class AnoController {
     @GetMapping("/facultydashboard")
     public String facultydashboard() {
         return "facultydashboard";
-    }
-
-    @GetMapping("/home")
-    public String home() {
-        return "home";
     }
 
     @GetMapping("/header")
@@ -159,3 +154,4 @@ public class AnoController {
 
 
 }
+
