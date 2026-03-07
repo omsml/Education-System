@@ -20,6 +20,16 @@ public class AnoController {
     @Autowired
     JdbcTemplate jdbc;
 
+    @GetMapping("/")
+public String index() {
+    return "landing"; // This now points to landing.jsp and avoids the "home" loop
+}
+
+@GetMapping("/home")
+public String home() {
+    return "landing"; // Even if the user types /home, it loads landing.jsp
+}
+
     @PostMapping("/register")
 
     public String register_save(@RequestParam("name") String name,
@@ -111,11 +121,6 @@ public class AnoController {
         return "index";
     }
 
-    @GetMapping("/")
-    public String welcome() {
-        return "home";
-    }
-
     @GetMapping("/admindashboard")
     public String admindashboard() {
         return "admindashboard";
@@ -154,4 +159,5 @@ public class AnoController {
 
 
 }
+
 
