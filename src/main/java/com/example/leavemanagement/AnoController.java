@@ -111,9 +111,9 @@ public class AnoController {
         return "index";
     }
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public String index() {
-        return "index";
+        return "home";
     }
 
     @GetMapping("/admindashboard")
@@ -156,5 +156,6 @@ public class AnoController {
     
        
     
+
 
 }
