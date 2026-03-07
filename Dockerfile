@@ -1,16 +1,16 @@
-# Step 1: Build using Maven
+# Step 1: Build the application using Maven
 FROM maven:3.8.4-openjdk-17 AS build
 WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
 
-# Step 2: Run using a light Java image
+# Step 2: Run the application
 FROM eclipse-temurin:17-jdk-focal
 WORKDIR /app
-# We use *.war because we changed the packaging in pom.xml
+# Copy the .war file produced by your pom.xml
 COPY --from=build /app/target/*.war app.war
 EXPOSE 8081
-# EXACT SYNTAX: No extra brackets inside the quotes
+# Corrected syntax to prevent "/bin/sh: 1: [java,: not found"
 ENTRYPOINT ["java", "-jar", "app.war"]
 
 
