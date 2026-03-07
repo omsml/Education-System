@@ -8,6 +8,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String index() {
-        return "home"; // This looks for home.jsp based on your prefix/suffix
+    return "index_page"; // No longer conflicts with a "/home" URL
     }
+
 }
