@@ -20,15 +20,12 @@ public class AnoController {
     @Autowired
     JdbcTemplate jdbc;
 
-    @GetMapping("/")
-public String index() {
-    return "landing"; // This now points to landing.jsp and avoids the "home" loop
+    @GetMapping("/home")
+public String home() {
+    return "landing.jsp"; // Adding .jsp here breaks the infinite loop on Render
 }
 
-@GetMapping("/home")
-public String home() {
-    return "landing"; // Even if the user types /home, it loads landing.jsp
-}
+
 
     @PostMapping("/register")
 
@@ -159,5 +156,6 @@ public String home() {
 
 
 }
+
 
 
