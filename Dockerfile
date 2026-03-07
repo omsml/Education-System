@@ -1,4 +1,4 @@
-# Step 1: Build the application using Maven
+# Step 1: Build using Maven
 FROM maven:3.8.4-openjdk-17 AS build
 WORKDIR /app
 COPY . .
@@ -9,9 +9,8 @@ FROM eclipse-temurin:17-jdk-focal
 WORKDIR /app
 # Copy the .war file produced by your pom.xml
 COPY --from=build /app/target/*.war app.war
+# Ensure this matches your application.properties
+ENV PORT=8081
 EXPOSE 8081
-# Corrected syntax to prevent "/bin/sh: 1: [java,: not found"
-ENTRYPOINT ["java", "-jar", "app.war"]
-
-
-
+# Explicitly tell Java to bind to port 8081
+ENTRYPOINT ["java", "-Dserver.port=8081", "-jar", "app.war"]
