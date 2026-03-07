@@ -89,6 +89,15 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
             </plugin>
+                 <resources>
+    <resource>
+        <directory>src/main/webapp</directory>
+        <targetPath>META-INF/resources</targetPath>
+        <includes>
+            <include>**/*.*</include>
+        </includes>
+    </resource>
+</resources>
         </plugins>
     </build>
 </project>
